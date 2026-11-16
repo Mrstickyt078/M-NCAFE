@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#22110a">
+<meta property="og:title" content="M&amp;N Café">
+<meta property="og:description" content="Café colombiano 100% orgánico y de alta calidad. Bolsa de 500 g. Pedidos por WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/poster.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Ccircle cx=%2732%27 cy=%2732%27 r=%2732%27 fill=%27%2322110a%27/%3E%3Cellipse cx=%2732%27 cy=%2732%27 rx=%2714%27 ry=%2720%27 fill=%27%23e0ae62%27 transform=%27rotate(25 32 32)%27/%3E%3Cpath d=%27M26 16c10 8-6 22 10 32%27 stroke=%27%2322110a%27 stroke-width=%273%27 fill=%27none%27/%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>M&amp;N Café</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="M&amp;N Café: café colombiano 100% orgánico y de alta calidad. Bolsa de 500 g. Pedidos por WhatsApp al 310 542 2566.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: franja de tueste oscuro con la bolsa blanca que se sale del borde y cae sobre el papel crema;
+   debajo, papel con grano, filas alineadas a la izquierda y dos tarjetas de video contrapuestas.
+   El único adorno es la tricolor de la etiqueta. */
+:root{
+  --papel:#f3e7d3; --carta:#fbf5ea; --tinta:#2a160c; --tierra:#5b3a24; --linea:#dcc9ac;
+  --panela:#a4611f; --hoja:#2c5a31; --hoja-tinta:#fbf5ea;
+  --tueste:#22110a; --tueste-2:#3b2113; --crema:#f6ead6; --crema-2:#cdb596; --oro:#e0ae62;
+  --am:#fcd116; --az:#0b3fa8; --ro:#ce1126;
+  --sombra:0 1px 2px rgba(42,22,12,.10),0 22px 48px -18px rgba(42,22,12,.38);
+  --sombra-suave:0 1px 2px rgba(42,22,12,.08),0 12px 28px -14px rgba(42,22,12,.28);
+  --titulo:"Gloock","Bodoni MT","Didot","Georgia",serif;
+  --texto:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --papel:#1a0d07; --carta:#27150c; --tinta:#f6ead6; --tierra:#c9b193; --linea:#43291a;
+  --panela:#e0ae62; --hoja:#3f7f46; --hoja-tinta:#fbf5ea;
+  --sombra:0 1px 2px rgba(0,0,0,.4),0 22px 48px -18px rgba(0,0,0,.7);
+  --sombra-suave:0 1px 2px rgba(0,0,0,.35),0 12px 28px -14px rgba(0,0,0,.6); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --papel:#1a0d07; --carta:#27150c; --tinta:#f6ead6; --tierra:#c9b193; --linea:#43291a;
+  --panela:#e0ae62; --hoja:#3f7f46; --hoja-tinta:#fbf5ea;
+  --sombra:0 1px 2px rgba(0,0,0,.4),0 22px 48px -18px rgba(0,0,0,.7);
+  --sombra-suave:0 1px 2px rgba(0,0,0,.35),0 12px 28px -14px rgba(0,0,0,.6); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{
+  background-color:var(--papel);color:var(--tinta);font-family:var(--texto);font-size:17px;line-height:1.6;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3  0 0 0 0 .17  0 0 0 0 .08  0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--titulo);font-weight:400;line-height:1.06;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--oro);outline-offset:3px;border-radius:8px}
+.tricolor{height:6px;background:linear-gradient(90deg,var(--am) 0 50%,var(--az) 50% 75%,var(--ro) 75% 100%)}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 1rem var(--texto);text-decoration:none;border:0;cursor:pointer;padding:14px 24px;border-radius:999px;background:var(--hoja);color:var(--hoja-tinta);box-shadow:var(--sombra-suave);transition:transform .15s ease,filter .15s ease}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-chico{padding:10px 20px;font-size:.95rem}
+.copy{background:none;border:1px solid currentColor;color:inherit;font:500 .9rem var(--texto);padding:9px 16px;border-radius:999px;cursor:pointer;opacity:.8}
+.copy:hover{opacity:1}
+
+/* franja de tueste */
+.tueste{background:radial-gradient(110% 100% at 80% 30%,var(--tueste-2),var(--tueste) 60%);color:var(--crema)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+.marca{font-family:var(--titulo);font-size:1.6rem;text-decoration:none;letter-spacing:-.01em}
+.top nav{display:flex;gap:26px;align-items:center;font-weight:500;font-size:.95rem}
+.top nav a:not(.btn){text-decoration:none;color:var(--crema-2)}
+.top nav a:not(.btn):hover{color:var(--crema)}
+.tema{display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid rgba(224,174,98,.45);color:var(--crema);font:500 .9rem var(--texto);padding:9px 15px;border-radius:999px;cursor:pointer}
+.tema:hover{border-color:var(--oro)}
+.tema svg{width:17px;height:17px;flex:none}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start;padding-block:48px 0}
+.hero>*{min-width:0}
+.hero-texto{padding-bottom:84px}
+.hero h1{font-size:clamp(2.9rem,7.4vw,5.9rem);line-height:.98}
+.lead{font-size:1.2rem;color:var(--crema-2);max-width:31em;margin-top:28px}
+.cta{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:center;margin-top:34px}
+.tel{font-variant-numeric:tabular-nums;font-weight:600;font-size:1.1rem;letter-spacing:.03em;user-select:all}
+.ficha{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;margin:44px 0 0;padding:0;list-style:none;font-size:.98rem}
+.ficha li{padding:4px 22px;border-left:1px solid rgba(224,174,98,.35)}
+.ficha li:first-child{padding-left:0;border-left:0}
+.bolsa{position:relative;z-index:2;justify-self:center;align-self:end;width:100%;max-width:450px;margin-bottom:-120px}
+.bolsa img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 2px 4px rgba(0,0,0,.3),0 40px 70px -20px rgba(0,0,0,.65);transform:rotate(2deg);animation:posar .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes posar{from{transform:translateY(26px) rotate(5deg)}to{transform:translateY(0) rotate(2deg)}}
+.sello{position:absolute;left:-26px;bottom:38px;width:104px;height:104px;border-radius:50%;background:var(--carta);color:var(--tinta);display:grid;place-content:center;text-align:center;font-family:var(--titulo);font-size:1.5rem;line-height:1;transform:rotate(-9deg);box-shadow:var(--sombra-suave);border:1px dashed var(--panela);outline:5px solid var(--carta)}
+.sello small{display:block;font:500 .68rem var(--texto);margin-top:4px;color:var(--tierra)}
+
+/* secciones sobre papel */
+.sec{padding-block:88px}
+.sec-origen{padding-top:170px}
+.sec h2{font-size:clamp(2.1rem,4.6vw,3.4rem)}
+.intro{max-width:36em;margin-bottom:44px}
+.intro p{color:var(--tierra);margin-top:16px;font-size:1.1rem}
+
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.split>*{min-width:0}
+.split img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:16px;box-shadow:var(--sombra)}
+.split .txt p{color:var(--tierra);margin-top:18px;max-width:30em}
+
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;list-style:none;margin:0;padding:0}
+.trio li{min-width:0}
+.trio li:nth-child(2){margin-top:44px}
+.trio img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px;box-shadow:var(--sombra-suave)}
+.trio h3{font-size:1.6rem;margin-block:22px 8px}
+.trio p{color:var(--tierra);max-width:24em}
+
+/* videos como tarjetas */
+.cine{display:grid;gap:36px}
+.film{display:grid;grid-template-columns:1.75fr 1fr;align-items:center;gap:36px;padding:22px;border-radius:26px;box-shadow:var(--sombra)}
+.film>*{min-width:0}
+.film-video{border-radius:14px;overflow:hidden;background:#000;box-shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -10px rgba(0,0,0,.55)}
+.film-video video{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.film-texto{padding:14px 18px 14px 0}
+.film h3{font-size:clamp(1.6rem,2.6vw,2.15rem)}
+.film-texto p{margin-top:14px}
+.film dl{display:flex;gap:28px;margin:26px 0 0;padding-top:18px;border-top:1px solid;font-size:.92rem}
+.film dt{opacity:.7}
+.film dd{margin:2px 0 0;font-weight:600}
+.film-a{background:linear-gradient(140deg,var(--tueste-2),var(--tueste));color:var(--crema)}
+.film-a .film-texto p{color:var(--crema-2)}
+.film-a dl{border-color:rgba(224,174,98,.3)}
+.film-b{background:var(--carta);border:1px solid var(--linea);grid-template-columns:1fr 1.75fr;margin-left:7%;}
+.film-b .film-video{order:2}
+.film-b .film-texto{padding:14px 0 14px 18px}
+.film-b .film-texto p{color:var(--tierra)}
+.film-b dl{border-color:var(--linea)}
+
+/* producto: ficha de reverso de bolsa */
+.producto{display:grid;grid-template-columns:.8fr 1.2fr;gap:52px;align-items:center;background:var(--carta);border:1px solid var(--linea);border-radius:26px;padding:40px;box-shadow:var(--sombra)}
+.producto>*{min-width:0}
+.producto img{display:block;width:100%;max-width:360px;height:auto;border-radius:14px;justify-self:center}
+.producto h2{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+.datos{margin:26px 0 30px;padding:0}
+.datos div{display:flex;align-items:baseline;gap:10px;padding:9px 0}
+.datos dt{color:var(--tierra)}
+.datos div::after{content:"";order:1;flex:1;border-bottom:2px dotted var(--linea);transform:translateY(-4px)}
+.datos dd{order:2;margin:0;font-weight:600;text-align:right}
+
+.pedido{text-align:center;padding-block:92px}
+.pedido h2{font-size:clamp(2rem,4.6vw,3.2rem)}
+.numero{font-family:var(--titulo);font-size:clamp(2.6rem,9vw,5.6rem);color:var(--oro);margin-block:14px 8px;font-variant-numeric:tabular-nums;line-height:1;user-select:all}
+.pedido p{color:var(--crema-2);max-width:30em;margin-inline:auto}
+.pedido .cta{justify-content:center}
+footer{background:var(--tueste);color:var(--crema-2);font-size:.9rem;padding-block:22px;border-top:1px solid rgba(224,174,98,.18)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+/* barra fija */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--tueste)}
+.barra{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--tueste);color:var(--crema);box-shadow:0 1px 0 rgba(224,174,98,.2)}
+.barra .top{padding-block:12px}
+
+/* portada con granos en movimiento */
+.portada{position:relative}
+.fondo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.34}
+.velo{position:absolute;inset:0;background:linear-gradient(90deg,var(--tueste) 8%,rgba(34,17,10,.72) 48%,rgba(34,17,10,.35)),linear-gradient(0deg,var(--tueste),transparent 30%)}
+.portada>.hero{position:relative;z-index:2}
+.portada>.tricolor{position:relative;z-index:1}
+
+/* preparación */
+.recetas{display:grid;grid-template-columns:repeat(3,1fr);list-style:none;margin:0;padding:0;border-top:1px solid var(--linea)}
+.recetas li{min-width:0;padding:30px 30px 6px;border-left:1px solid var(--linea)}
+.recetas li:first-child{padding-left:0;border-left:0}
+.recetas h3{font-size:1.55rem}
+.medidas{display:flex;gap:22px;margin:18px 0 16px;font-variant-numeric:tabular-nums}
+.medidas dt{font-size:.85rem;color:var(--tierra)}
+.medidas dd{margin:0;font-family:var(--titulo);font-size:1.5rem;line-height:1.2}
+.recetas p{color:var(--tierra);max-width:26em}
+.nota{margin-top:30px;color:var(--tierra);font-size:.98rem}
+
+/* preguntas */
+.faq{max-width:780px;border-top:1px solid var(--linea)}
+.faq details{border-bottom:1px solid var(--linea)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:20px 0;font-family:var(--titulo);font-size:1.3rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--texto);font-size:1.5rem;color:var(--panela);line-height:1;transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--tierra);padding:0 0 22px;max-width:38em}
+
+/* armar pedido */
+.pedido{text-align:left;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:start}
+.pedido>*{min-width:0}
+.pedido p{margin-inline:0}
+.pedido .cta{justify-content:flex-start;margin-top:22px}
+.pedido .numero{font-size:clamp(2.3rem,5vw,3.7rem);margin-block:26px 0}
+.armar{margin-top:30px;background:rgba(246,234,214,.06);border:1px solid rgba(224,174,98,.28);border-radius:24px;padding:28px}
+.armar label,.armar .rotulo{display:block;font-size:.92rem;color:var(--crema-2);margin-bottom:10px}
+.contador{display:flex;align-items:center;gap:18px}
+.contador button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(224,174,98,.5);background:none;color:var(--crema);font:400 1.5rem/1 var(--texto);cursor:pointer}
+.contador button:hover{background:rgba(224,174,98,.14)}
+.contador output{font-family:var(--titulo);font-size:3rem;line-height:1;min-width:1.4em;text-align:center;font-variant-numeric:tabular-nums}
+.rinde{color:var(--oro);font-size:.98rem}
+.armar input{width:100%;margin-bottom:22px;padding:13px 16px;border-radius:12px;border:1px solid rgba(224,174,98,.35);background:rgba(0,0,0,.25);color:var(--crema);font:400 1rem var(--texto)}
+.armar input::placeholder{color:var(--crema-2);opacity:.6}
+.armar .contador{margin-bottom:22px}
+.armar .btn{width:100%;justify-content:center}
+.pasos{margin:26px 0 0;padding:0;list-style:none;counter-reset:paso}
+.pasos li{counter-increment:paso;display:flex;gap:16px;align-items:baseline;padding:14px 0;border-top:1px solid rgba(224,174,98,.22);color:var(--crema-2)}
+.pasos li::before{content:counter(paso);font-family:var(--titulo);font-size:1.5rem;color:var(--oro);line-height:1}
+.pasos b{color:var(--crema);font-weight:600}
+
+/* botón fijo en celular */
+.barra-movil{display:none}
+
+@media (max-width:860px){
+  .pedido{grid-template-columns:1fr;gap:40px;padding-block:60px}
+  .recetas{grid-template-columns:1fr}
+  .recetas li{padding:26px 0 22px;border-left:0;border-bottom:1px solid var(--linea)}
+  .barra-movil{display:block;position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--tueste);border-top:1px solid rgba(224,174,98,.25);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+  .barra-movil .btn{width:100%;justify-content:center}
+  footer{padding-bottom:96px}
+  .tema span{display:none}
+  .tema{padding:10px}
+  .barra .btn-chico{display:none}
+}
+@media (max-width:860px){
+  .hero,.split,.producto,.film,.film-b{grid-template-columns:1fr}
+  .hero{gap:28px;padding-block:20px 56px}
+  .hero-texto{padding-bottom:0}
+  .bolsa{order:-1;max-width:300px;margin-bottom:0}
+  .sello{left:-14px;bottom:20px;width:84px;height:84px;font-size:1.2rem}
+  .ficha{grid-template-columns:1fr;gap:6px}
+  .ficha li{padding:0;border:0}
+  .top nav a:not(.btn){display:none}
+  .sec{padding-block:60px}
+  .sec-origen{padding-top:60px}
+  .split img{order:-1}
+  .trio{grid-template-columns:1fr}
+  .trio li:nth-child(2){margin-top:0}
+  .trio img{aspect-ratio:16/10}
+  .film{gap:8px;padding:14px;border-radius:20px}
+  .film-b{margin-left:0}
+  .film-b .film-video{order:0}
+  .film-texto,.film-b .film-texto{padding:14px 6px 8px}
+  .producto{padding:22px;gap:26px}
+}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.bolsa img{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="wrap top">
+    <a class="marca" href="#inicio">M&amp;N Café</a>
+    <nav aria-label="Secciones">
+      <a href="#cafe">El café</a>
+      <a href="#preparacion">Preparación</a>
+      <a href="#videos">Videos</a>
+      <a href="#producto">Producto</a>
+      <button class="tema" id="tema" type="button" aria-label="Cambiar entre versión clara y oscura">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.5 0-.9-.1-1.400A5.500 5.500 0 0 1 13.400 3.100 9 9 0 0 0 12 3Z"/></svg>
+        <span id="tema-txt">Modo oscuro</span>
+      </button>
+      <a class="btn btn-chico" href="#pedidos">Hacer pedido</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tueste portada" id="inicio">
+  <video class="fondo" id="fondo" muted loop playsinline preload="metadata" poster="img/granos.jpg" aria-hidden="true" tabindex="-1">
+    <source src="granos-fondo.mp4" type="video/mp4">
+  </video>
+  <div class="velo"></div>
+  <div class="wrap hero">
+    <div class="hero-texto">
+      <h1>El verdadero sabor de Colombia</h1>
+      <p class="lead">Desde las tierras colombianas nace un sabor extraordinario. M&amp;N Café es 100% orgánico y de alta calidad: sabor puro, naturaleza en cada taza.</p>
+      <div class="cta">
+        <a class="btn" href="https://wa.me/573105422566?text=Hola%2C%20quiero%20pedir%20M%26N%20Caf%C3%A9" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.100L2 22l5-1.300A10 10 0 1 0 12 2Zm0 18.200c-1.500 0-3-.400-4.300-1.200l-.300-.200-3 .800.800-2.900-.200-.300A8.200 8.200 0 1 1 12 20.200Zm4.500-6.100c-.200-.100-1.500-.700-1.700-.800-.200-.100-.400-.100-.600.100l-.800 1c-.100.200-.300.200-.500.100a6.700 6.700 0 0 1-3.300-2.900c-.300-.400.300-.400.700-1.300.100-.200 0-.300 0-.500l-.800-1.900c-.200-.500-.400-.400-.600-.400h-.500c-.200 0-.500.100-.700.300-.900.900-1 2.200-.300 3.500a11.300 11.300 0 0 0 4.800 4.300c1.800.700 2.500.800 3.400.600.500-.100 1.500-.600 1.700-1.200.200-.600.200-1.100.100-1.200l-.400-.200Z"/></svg>
+          Pedir por WhatsApp
+        </a>
+        <span class="tel">310 542 2566</span>
+        <button class="copy" id="copy1" type="button" data-num="3105422566">Copiar número</button>
+      </div>
+      <ul class="ficha">
+        <li>100% orgánico</li>
+        <li>Alta calidad</li>
+        <li>Bolsa de 500 g</li>
+      </ul>
+    </div>
+    <div class="bolsa">
+      <img src="img/empaque.jpg" width="1213" height="1297" alt="Bolsa blanca de M&amp;N Café de 500 gramos, con la bandera de Colombia, un sombrero vueltiao y una taza de café en la etiqueta">
+      <div class="sello" aria-hidden="true">500 g<small>cont. neto</small></div>
+    </div>
+  </div>
+  <div class="tricolor" role="presentation"></div>
+</div>
+
+<main>
+  <section class="sec sec-origen" id="cafe">
+    <div class="wrap split">
+      <div class="txt">
+        <h2>Nace en las montañas de Colombia</h2>
+        <p>Un buen café empieza mucho antes de la taza: en la tierra, entre hojas verdes y neblina de montaña.</p>
+        <p>M&amp;N Café lleva ese origen a tu mesa con un grano 100% orgánico, para que cada taza sepa a lo que es: café colombiano.</p>
+      </div>
+      <img src="img/montanas.jpg" width="1200" height="675" alt="Montañas verdes cubiertas de vegetación bajo un cielo con neblina" loading="lazy">
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:20px">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Sabor puro, naturaleza en cada taza</h2>
+      </div>
+      <ul class="trio">
+        <li>
+          <img src="img/granos.jpg" width="1200" height="675" alt="Granos de café tostado en primer plano" loading="lazy">
+          <h3>100% orgánico</h3>
+          <p>Solo café. Un grano cultivado de forma natural, sin nada que le cambie el sabor.</p>
+        </li>
+        <li>
+          <img src="img/tostado.jpg" width="1200" height="675" alt="Una persona tuesta granos de café en una sartén sobre fuego de leña" loading="lazy">
+          <h3>Alta calidad</h3>
+          <p>Cuidamos el café en cada paso para que llegue a tu casa con todo su aroma.</p>
+        </li>
+        <li>
+          <img style="object-position:50% 85%" src="img/taza.jpg" width="1200" height="675" alt="Taza de café recién servido con vapor, sobre granos de café" loading="lazy">
+          <h3>Sabor puro</h3>
+          <p>Una taza recién servida, con cuerpo y aroma. Así sabe el café de Colombia.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="preparacion">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Prepáralo a tu manera</h2>
+        <p>Tres formas de servir un buen tinto en casa. Usa agua recién hervida, no hirviendo a borbotones.</p>
+      </div>
+      <ul class="recetas">
+        <li>
+          <h3>En olleta</h3>
+          <dl class="medidas">
+            <div><dt>Café</dt><dd>10 g</dd></div>
+            <div><dt>Agua</dt><dd>180 ml</dd></div>
+            <div><dt>Reposo</dt><dd>4 min</dd></div>
+          </dl>
+          <p>Hierve el agua, apaga el fuego y agrega una cucharada colmada de café por pocillo. Revuelve, tapa y cuela al servir.</p>
+        </li>
+        <li>
+          <h3>En prensa francesa</h3>
+          <dl class="medidas">
+            <div><dt>Café</dt><dd>30 g</dd></div>
+            <div><dt>Agua</dt><dd>500 ml</dd></div>
+            <div><dt>Reposo</dt><dd>4 min</dd></div>
+          </dl>
+          <p>Pon el café en la prensa, vierte el agua y espera. Baja el émbolo despacio y sirve enseguida.</p>
+        </li>
+        <li>
+          <h3>En colador o filtro</h3>
+          <dl class="medidas">
+            <div><dt>Café</dt><dd>20 g</dd></div>
+            <div><dt>Agua</dt><dd>350 ml</dd></div>
+            <div><dt>Goteo</dt><dd>3 min</dd></div>
+          </dl>
+          <p>Moja primero el café con un chorrito de agua. Luego vierte el resto poco a poco, en círculos.</p>
+        </li>
+      </ul>
+      <p class="nota">Con 10 g por taza, una bolsa de 500 g rinde unas 50 tazas.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="videos" style="padding-top:20px">
+    <div class="wrap">
+      <div class="intro">
+        <h2>M&amp;N Café en video</h2>
+        <p>Dos piezas de 30 segundos. Dale play a la que quieras.</p>
+      </div>
+      <div class="cine">
+        <article class="film film-a">
+          <div class="film-video">
+            <video controls preload="none" poster="img/poster.jpg" playsinline>
+              <source src="comercial.mp4" type="video/mp4">
+              Tu navegador no puede reproducir este video.
+            </video>
+          </div>
+          <div class="film-texto">
+            <h3>M&amp;N Café en 30 segundos</h3>
+            <p>Del grano que cae a la taza servida. Así presentamos nuestro café y la bolsa de 500 g.</p>
+            <dl>
+              <div><dt>Duración</dt><dd>30 s</dd></div>
+              <div><dt>Sonido</dt><dd>Voz y música</dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="film film-b">
+          <div class="film-video">
+            <video controls preload="none" poster="img/poster-dos-mananas.jpg" playsinline>
+              <source src="dos-mananas.mp4" type="video/mp4">
+              Tu navegador no puede reproducir este video.
+            </video>
+          </div>
+          <div class="film-texto">
+            <h3>Dos mañanas, un mismo café</h3>
+            <p>En el campo y en la ciudad el día empieza con el mismo primer sorbo.</p>
+            <dl>
+              <div><dt>Duración</dt><dd>30 s</dd></div>
+              <div><dt>Sonido</dt><dd>Solo música</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="producto" style="padding-top:20px">
+    <div class="wrap">
+      <div class="producto">
+        <img src="img/empaque.jpg" width="1213" height="1297" alt="Empaque de M&amp;N Café de 500 gramos" loading="lazy">
+        <div>
+          <h2>M&amp;N Café, bolsa de 500 g</h2>
+          <dl class="datos">
+            <div><dt>Contenido neto</dt><dd>500 g</dd></div>
+            <div><dt>Tipo</dt><dd>Café 100% orgánico</dd></div>
+            <div><dt>Origen</dt><dd>Colombia</dd></div>
+            <div><dt>Rinde</dt><dd>Unas 50 tazas</dd></div>
+            <div><dt>Pedidos</dt><dd>WhatsApp 310 542 2566</dd></div>
+          </dl>
+          <a class="btn" href="#pedidos">Pedir esta bolsa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="preguntas" style="padding-top:20px">
+    <div class="wrap">
+      <div class="intro">
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>¿Cómo hago un pedido?</summary>
+          <p>Elige cuántas bolsas quieres en la sección de pedidos y toca «Enviar pedido por WhatsApp». Se abre el chat con el mensaje ya escrito. También puedes escribirnos directo al 310 542 2566.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto cuesta y cómo es el envío?</summary>
+          <p>Te confirmamos el precio y el envío por WhatsApp, según la cantidad y la ciudad donde estés.</p>
+        </details>
+        <details>
+          <summary>¿Cuántas tazas salen de una bolsa?</summary>
+          <p>Unas 50 tazas, usando 10 g de café por taza. Si te gusta más cargado, rinde un poco menos.</p>
+        </details>
+        <details>
+          <summary>¿Cómo guardo el café?</summary>
+          <p>Cierra bien la bolsa después de cada uso y guárdala en un lugar fresco y seco, lejos de la luz y de olores fuertes.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="tueste">
+  <div class="tricolor" role="presentation"></div>
+  <section class="wrap pedido" id="pedidos">
+    <div>
+      <h2>Arma tu pedido</h2>
+      <form class="armar" id="armar">
+        <span class="rotulo" id="rot-bolsas">Bolsas de 500 g</span>
+        <div class="contador" role="group" aria-labelledby="rot-bolsas">
+          <button type="button" id="menos" aria-label="Quitar una bolsa">−</button>
+          <output id="cantidad" aria-live="polite">1</output>
+          <button type="button" id="mas" aria-label="Agregar una bolsa">+</button>
+          <span class="rinde" id="rinde">500 g, unas 50 tazas</span>
+        </div>
+        <label for="ciudad">Tu ciudad (opcional)</label>
+        <input id="ciudad" type="text" autocomplete="address-level2" maxlength="60" placeholder="Por ejemplo, Medellín">
+        <a class="btn" id="enviar" href="https://wa.me/573105422566?text=Hola%2C%20quiero%20pedir%201%20bolsa%20de%20M%26N%20Caf%C3%A9%20de%20500%20g." target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+      </form>
+    </div>
+    <div>
+      <p class="numero">310 542 2566</p>
+      <div class="cta">
+        <button class="copy" id="copy2" type="button" data-num="3105422566">Copiar número</button>
+      </div>
+      <ol class="pasos">
+        <li><span><b>Elige cuántas bolsas quieres.</b> Si quieres, dinos tu ciudad.</span></li>
+        <li><span><b>Envía el mensaje por WhatsApp.</b> Ya va escrito, solo tocas enviar.</span></li>
+        <li><span><b>Te confirmamos precio y entrega.</b> Por el mismo chat.</span></li>
+      </ol>
+    </div>
+  </section>
+</div>
+<footer><div class="wrap"><span>M&amp;N Café</span><span>Descubre el verdadero sabor de Colombia</span></div></footer>
+
+<div class="barra-movil"><a class="btn" href="#pedidos">Hacer pedido por WhatsApp</a></div>
+
+<script>
+(function(){
+  var n=1, out=document.getElementById('cantidad'), rinde=document.getElementById('rinde'),
+      ciudad=document.getElementById('ciudad'), enviar=document.getElementById('enviar');
+  var actualizar=function(){
+    out.textContent=n;
+    var g=n*500;
+    rinde.textContent=(g>=1000?(g/1000).toString().replace('.',',')+' kg':g+' g')+', unas '+(n*50)+' tazas';
+    var c=ciudad.value.trim();
+    var msg='Hola, quiero pedir '+n+(n===1?' bolsa':' bolsas')+' de M&N Café de 500 g.'+(c?' Estoy en '+c+'.':'');
+    enviar.href='https://wa.me/573105422566?text='+encodeURIComponent(msg);
+  };
+  document.getElementById('menos').addEventListener('click',function(){if(n>1){n--;actualizar()}});
+  document.getElementById('mas').addEventListener('click',function(){if(n<50){n++;actualizar()}});
+  ciudad.addEventListener('input',actualizar);
+  document.getElementById('armar').addEventListener('submit',function(e){e.preventDefault();enviar.click()});
+  actualizar();
+  var fondo=document.getElementById('fondo');
+  if(fondo && !matchMedia('(prefers-reduced-motion: reduce)').matches){var p=fondo.play();if(p&&p.catch)p.catch(function(){})}
+})();
+(function(){
+  var raiz=document.documentElement, boton=document.getElementById('tema'), txt=document.getElementById('tema-txt');
+  var oscuro=function(){
+    var t=raiz.getAttribute('data-theme');
+    return t? t==='dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  };
+  var pintar=function(){txt.textContent=oscuro()?'Modo claro':'Modo oscuro'};
+  try{var g=localStorage.getItem('mn-tema'); if(g==='dark'||g==='light') raiz.setAttribute('data-theme',g)}catch(e){}
+  pintar();
+  boton.addEventListener('click',function(){
+    var nuevo=oscuro()?'light':'dark';
+    raiz.setAttribute('data-theme',nuevo);
+    try{localStorage.setItem('mn-tema',nuevo)}catch(e){}
+    pintar();
+  });
+})();
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var done=function(){var t=b.textContent;b.textContent='Número copiado';setTimeout(function(){b.textContent=t},1800)};
+    var fallback=function(){
+      var el=b.closest('.cta').parentElement.querySelector('.tel,.numero');
+      if(el){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+    };
+    try{navigator.clipboard.writeText(b.dataset.num).then(done,fallback)}catch(e){fallback()}
+  });
+});
+</script>
+
+</body>
+</html>
